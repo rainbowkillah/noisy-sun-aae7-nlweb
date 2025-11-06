@@ -1,0 +1,76 @@
+{
+  "name": "noisy-sun-aae7-nlweb",
+  "main": "src/worker.js",
+  "workers_dev": true,
+  "preview_urls": false,
+  "compatibility_date": "2025-05-23",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "routes": [
+    {
+      "pattern": "ai.mrrainbowsmoke.com/*",
+      "zone_name": "mrrainbowsmoke.com"
+    },
+    {
+      "pattern": "ai.rainbowsmokeofficial.com/*",
+      "zone_name": "rainbowsmokeofficial.com"
+    },
+    {
+      "pattern": "ai.mrrainbowsmoke.com",
+      "zone_name": "mrrainbowsmoke.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "ai.rainbowsmokeofficial.com",
+      "zone_name": "rainbowsmokeofficial.com",
+      "custom_domain": true
+    }
+  ],
+  "migrations": [
+    {
+      "new_classes": [
+        "NLWebMcp"
+      ]
+    }
+  ],
+  "observability": {
+    "enabled": false,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "MCP_OBJECT",
+        "class_name": "NLWebMcp"
+      }
+    ]
+  },
+  "vars": {
+    "RAG_ID": "noisy-sun-aae7"
+  },
+  "ratelimits": [
+    {
+      "name": "RATE_LIMITER",
+      "namespace_id": "100",
+      "simple": {
+        "limit": 15,
+        "period": 60
+      }
+    }
+  ]
+}
