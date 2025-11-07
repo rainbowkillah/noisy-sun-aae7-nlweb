@@ -29,6 +29,7 @@
   ],
   "migrations": [
     {
+      "tag": "add-nlwebmcp",
       "new_classes": [
         "NLWebMcp"
       ]
