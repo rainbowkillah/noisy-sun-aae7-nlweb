@@ -43304,6 +43304,13 @@ var NLWebMcp = class extends McpAgent {
   }
 };
 
+// Temporary wrapper to migrate Durable Object storage to SQLite namespace
+var NLWebMcpSqlite = class extends NLWebMcp {
+  static {
+    __name(this, "NLWebMcpSqlite");
+  }
+};
+
 // src/index.ts
 var RATE_LIMITED_ROUTES = /* @__PURE__ */ new Set([
   "/ask",
@@ -43323,7 +43330,7 @@ async function getNlWebResponse(request, env2, ctx) {
     return handleAsk(request, env2, env2.RAG_ID, ctx);
   }
   if (url.pathname === "/mcp") {
-    return NLWebMcp.serve("/mcp").fetch(request, env2, {
+    return NLWebMcpSqlite.serve("/mcp").fetch(request, env2, {
       ...ctx,
       props: {
         ragId: env2.RAG_ID
@@ -43367,6 +43374,7 @@ var index_default = {
 };
 export {
   NLWebMcp,
+  NLWebMcpSqlite,
   index_default as default
 };
 /*! Bundled license information:

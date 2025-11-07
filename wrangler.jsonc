@@ -29,9 +29,9 @@
   ],
   "migrations": [
     {
-      "tag": "add-nlwebmcp",
+      "tag": "add-nlwebmcp-sqlite",
       "new_sqlite_classes": [
-        "NLWebMcp"
+        "NLWebMcpSqlite"
       ]
     }
   ],
@@ -57,7 +57,7 @@
     "bindings": [
       {
         "name": "MCP_OBJECT",
-        "class_name": "NLWebMcp"
+        "class_name": "NLWebMcpSqlite"
       }
     ]
   },
