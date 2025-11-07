@@ -30,9 +30,6 @@
   "migrations": [
     {
       "tag": "add-nlwebmcp",
-      "new_classes": [
-        "NLWebMcp"
-      ],
       "new_sqlite_classes": [
         "NLWebMcp"
       ]
